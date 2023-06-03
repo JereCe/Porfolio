@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Rollover simple con JavaScript</title>
+</head>
+
+<body bgcolor="white">
+<script language=javascript>
+iluminada = new Image(84,34)
+iluminada.src = "fbhover.png"
+apagada = new Image(84,34)
+apagada.src = "fbbien.png"
+</script>
+    <A href="#" onmouseout="window.document['eul'].src = apagada.src" onmouseover="window.document['eul'].src = iluminada.src">
+	
+	<IMG name=eul src="fbbien.png"</A>
+	<font face="verdana,arial,helvetica" size="1" color="#003300">
+	Ejemplo de rollover</font>
+	
+
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+image01= new Image()
+image01.src="Imagenes web/fbbien.png"
+image02= new Image()
+image02.src="Imagenes web/fbhover.png"
+function rollover(imagename, newsrc){
+document.images[imagename].src=newsrc.src
+}
+</script></head>
+<body style="text-align:center; margin:50px;">
+<p> Pasa el mouse sobre la imagen </p>
+<a  href="#" onmouseover="rollover('example', image02)"
+onmouseout="rollover('example', image01)">
+<img src="Imagenes web/fbbien.png" name="example">
+</a>

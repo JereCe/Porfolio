@@ -1,0 +1,1003 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	min-width:1250px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+    font-family: PatuaOne;
+	src:url(Patua_One/PatuaOne-Regular.ttf) format("truetype");
+}
+
+body {
+	font-family:"Helvetica Neue";
+
+	margin: 0 auto;
+	
+	
+	
+}
+
+#fotohome {
+	text-align:center;
+	
+	}
+header {
+	width: 1010px;
+	margin:0 auto;
+	height: 150px;
+	text-align:center;
+	font-size:10px;
+	
+	
+	
+}
+
+#formulario {
+	float:right;
+	
+	width:370px;
+	padding-top:120px;
+
+	
+
+
+
+}
+
+.ars1 b {
+	font-weight:bold;
+}
+
+#submit {
+	margin-top: 15px; 
+
+
+	background-color:#00529c ;
+	display:inline-block;
+	color:#ffffff;
+	font-size:16px;
+	padding:8px 30px;
+	text-decoration:none;
+	border:none;
+	float:right;
+	margin-right: 145px;
+	}
+	
+	
+	#submit:hover {
+		background-color:#ffcf01;
+		
+	}
+	
+		#boton:hover {
+		background-color:#ffcf01;
+		
+	}
+	
+	#submit2 {
+	margin-top: 1px; 
+
+
+
+	background-color:#00529c ;
+	display:inline-block;
+	color:#ffffff;
+	font-size:18px;
+	padding:9px 30px;
+	text-decoration:none;
+	border:none;
+	float:right;
+	margin-right: 170px;
+	}
+	
+	
+	#submit2:hover {
+		background-color:#ffcf01;
+		
+	}
+		
+		
+	
+
+#formulario label {
+	float:left;
+	width:100px;
+	color:#FFF;
+	font-size:18px;
+	font-weight:400;
+	
+	
+}
+
+#formulario input {
+	margin-bottom:15px;
+}
+
+#form1 {
+	alignment-baseline:central;
+}
+
+#botonform {
+	alignment-adjust:central;
+}
+
+header div {
+	margin-left:290px;
+}
+
+header a {
+	color:#00529c;
+	text-align:center;
+	text-decoration:none;
+	
+
+	
+	
+}
+
+header a:hover {
+	color:#ffcf01;
+}
+
+#menu_top {
+	display: flex;
+
+	
+	
+}
+#menuone {
+	padding-top:60px;
+	
+	}
+
+#menu_top li {
+	width: 22%;
+}
+
+#menu_top a {
+	font-size:12px;
+	
+	
+
+}
+
+header a img {
+	vertical-align:middle;
+	
+}
+
+nav {
+	height: 50px;
+	width: 100%;
+	background-color: #ffcf01;
+	list-style:none;
+	margin:0;
+	padding:0;
+	text-align:center;
+	
+	
+}
+
+
+
+
+.menu a {
+	font-size:16px;
+	font-family:Helvetica;
+	font-weight:bold;
+	text-decoration:none;
+	color:#000;
+	padding:13px 50px;
+	
+}
+
+
+.menu li {
+	display:inline-block;
+	padding-top: 17px;
+
+	
+	
+}
+
+.menu a:hover {
+	
+	color: #00529c;
+}
+	
+
+#imgmenu {
+	padding-top:15px;
+}
+
+#info {
+	background:#3e403d;
+	margin-top: 0px;
+	height:80px;
+	text-align:center;
+	
+}
+
+#info h2 {
+	padding-top:10px;
+	font-size:20px;
+	color:#FFF;
+}
+
+#info a {
+	text-decoration:none;
+	color:#ffcf01;
+	
+	
+}
+
+#info a:hover {
+	text-decoration:none;
+	color:#fff;
+	
+	
+}
+
+aside {
+	margin-right:50px;
+	float:right;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+.dona {
+	padding-top:50px;
+	float:left;
+	margin-left:50px;
+	
+}
+
+.dona h1 {
+	font-family:"PatuaOne";
+
+	font-size:25px;
+	color:#ffcf01;
+	padding-bottom:30px;
+}
+
+.video1 {
+	float:left;
+	padding-top:50px;
+	display:inline;
+	padding-left:70px;;
+	
+}
+
+.foto1 {
+	float:left;
+	
+	margin-left:50px;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+.video1 h1 {
+	font-family:"PatuaOne";
+	font-size:25px;
+	padding-bottom:30px;
+	color:#ffcf01;
+	
+}
+
+.peri1 {
+	float:left;
+	padding-top:50px;
+	display:inline;
+	padding-left:70px;
+
+	
+}
+
+#peri1 {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/periodico.png);
+
+}
+
+#peri1:hover {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/Periodico-back.png);
+}
+
+#dona1 {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/Dona.png);
+
+}
+
+#dona1:hover {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/Dona-back.png);
+}
+
+#foto1 {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/fotos.png);
+
+}
+
+#foto1:hover {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/imagenes-back.png);
+}
+
+#video1 {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/video.png);
+
+}
+
+#video1:hover {
+	width:300px;
+	height:300px;
+	background-image:url(Imagenes%20web/Videos-back.png);
+}
+
+
+
+.peri1 h1 {
+	font-family:"PatuaOne";
+	font-size:25px;
+	padding-bottom:30px;
+	color:#ffcf01;
+	
+}
+
+.foto1 h1 {
+	font-family:"PatuaOne";
+	font-size:25px;
+	padding-bottom:30px;
+	color:#ffcf01;
+	
+}
+
+
+
+.asi1 a:hover { 
+color:#00529c; }
+		
+	
+
+
+.asi1 {
+	list-style:circle;
+	float:left;
+	margin-left:150px;
+	
+}
+
+#anterior {
+	display:block;
+	width:276px;
+	height:46px;
+	background: #CCC;
+	color: black;
+}
+
+#anterior a:hover {
+	color: #fff;
+}
+#actual {
+	display:block;
+	width:276px;
+	height:46px;
+	background:#000;
+	color: #FFF;
+}
+
+
+#actual p {
+	padding-top: 16px;
+	padding-left: 10px;
+}
+
+#anterior p {
+	padding-top: 16px;
+	padding-left: 10px;
+}
+.asi1 ul {
+	padding-top:30px;
+	list-style:inside;
+	
+}
+
+.asi1 a {
+	text-decoration:none;
+	color:#000;
+}
+
+.ars1 {
+	padding-top:50px;
+		max-width:1250px;
+	min-width:1250px;
+	margin: 0 auto;
+	
+
+}
+
+.ars1 h1 {
+	font-family:"PatuaOne";
+	font-size:60px;
+	color:#00529c;
+	padding-right:210px;
+	float: right;
+	width:550px;
+
+
+	
+	
+}
+
+#imp,#btn,#h3,#imgc,#h4 {
+	padding-top: 50px;
+
+}
+
+#imp {
+	float:right;
+	margin-right:450px;
+	
+	
+	
+}
+
+
+
+#vid {
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+	
+
+#boton {
+
+	float:left;
+	margin-left:720px;
+	background-color:#00529c ;
+	display:inline-block;
+	color:#ffffff;
+	font-size:18px;
+	padding:15px 30px;
+	text-decoration:none;
+}
+
+
+	
+.ars1 p,h3 {
+	float:right;
+	
+	margin-right:260px;
+	width:500px;
+	padding-bottom:50px;
+	
+	
+}
+
+.ars1 h3 {
+	
+	font-size:24px;
+	font-weight:bold;
+	
+	padding-bottom:20px;
+	
+	
+}
+
+#imgc3 {
+	float:right;
+	margin-left:200px;
+	margin-right:200px;
+	padding-top: 50px;
+	padding-bottom:50px;
+	clear:left;
+}
+	
+#noticias1 {
+	float:right;
+	margin-right:300px;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+#noticias1 h4 {
+	padding-top:10px;
+	width:300px;
+	font-size:24px;
+	float:right;
+	font-weight:bold;
+	padding-left:10px;
+	margin-right:20pxnoti
+}
+#noticias2 {
+	
+	float:right;
+	margin-right:400px;
+	
+	padding-bottom:50px;
+}
+
+#noticias2 h4 {
+	padding-left:10px;
+	padding-top:0px;
+	
+	width:200px;
+	font-size:23px;
+	float:right;
+	font-weight:bold;
+}
+
+#vid {
+	margin-right:210px;
+	
+	float:right;
+}
+
+#imgc {
+	float:right;
+	margin-right:500px;
+	padding-bottom:50px;
+	clear:both;
+}
+
+#sec1 {
+	margin:0 auto;
+}
+
+#consulta {
+	
+	width:1120px;
+	height:370px;
+	background:url(Imagenes%20web/consulta.png);
+	margin-left:50px;
+	clear:both;
+	margin-bottom:50px;
+
+}
+
+#consu1 {
+	margin-left:60px;
+	width:180px;
+	float:left;
+	
+}
+
+#consu1 p {
+	font-size:90px;
+	font-family:"PatuaOne";
+	color:#FFF;
+	padding-top:80px;
+	
+}
+
+#consu2 {
+	padding-top:20px;
+	
+}
+
+.ulse  {
+	padding-top:50px;
+	float:right;
+	margin-right:210px;
+	width:550px;
+	padding-bottom:100px;
+	
+	
+	
+}
+
+.ulse a {
+	text-decoration:none;
+	color:#69C;
+}
+	
+
+#divsea {
+	float:right;
+	margin-right:210px;
+	width:550px;
+	padding-bottom:150px;
+	border-top: solid thin #ffcf01;
+	
+}
+
+#divsea2 {
+	
+	float:right;
+	margin-right:210px;
+	width:550px;
+	padding-bottom:50px;
+	
+	border-top: solid thin #ffcf01;
+	
+}
+
+#divsea4 {
+	margin-top:50px;
+	float:right;
+	margin-right:225px;
+	width:550px;
+	padding-bottom:50px;
+	
+	border-top: solid thin #ffcf01;
+	
+}
+	
+
+#homel {
+	float:left;
+	margin-left:50px;
+	width:1100px;
+	border-top: solid thin #ffcf01;
+	
+}
+
+#divsea3 {
+	float:right;
+	margin-right:210px;
+	width:550px;
+	padding-bottom:150px;
+	
+	border-top: solid thin #ffcf01;
+	
+}
+
+.ars1 h7 {
+	color:#666;
+	font-size:14px;
+	
+	width:550px;
+	float:right;
+	margin-right:210px;
+	padding-top:50px;
+}
+
+
+	
+	
+	
+footer {
+	width:100%;
+	
+	height:170px;
+	text-align:center;
+	clear:both;
+	background:#000;
+	
+	
+	
+}
+
+
+
+
+footer li {
+	display:inline-block;
+	width:150px;
+	padding-top:20px;
+	
+	
+}
+.nav2 a {
+	text-decoration:none;
+	list-style:none;
+	color: #ffcf01;
+	font-size:13px;
+
+}
+
+.nav2 a:hover {
+	color:#FFF;
+}
+
+.redessociales  {
+	padding-top:10px;
+
+}
+
+
+
+
+footer h5 {
+	color:#FFF;
+	padding-top:8px;
+	font-size:10px;
+}
+	
+#radiol {
+	
+	border-top:solid thin #ffcf01;
+	float:right;
+	width:550px;
+	height:10px;
+	padding-bottom:50px;
+	
+	margin-right:210px;
+
+}
+
+#divhome {
+	margin: 0 auto;
+	max-width:1200px;
+	min-width:1200px;
+}
+
+#vid2 {
+	float:right;
+	margin-right:390px;
+	padding-bottom:50px;
+}
+
+#p2 {
+	padding-top: 50px;
+	width: 550px;
+	float:right;
+	margin-right:210px;
+}
+	
+	 .jssorb21 {
+            position: absolute;
+            bottom: 26px;
+            left: 6px;
+        }
+        .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            line-height: 19px;
+            color: white;
+            font-size: 12px;
+            background: url(../img/b21.png) no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb21 div { background-position: -5px -5px; }
+        .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+        .jssorb21 .av { background-position: -65px -5px; }
+        .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+		
+		        .jssora21l, .jssora21r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url(../img/a21.png) center center no-repeat;
+            overflow: hidden;
+        }
+        .jssora21l { background-position: -3px -33px; top: 123px; left: 8px; }
+        .jssora21r { background-position: -63px -33px; top: 123px; right: 8px; }
+        .jssora21l:hover { background-position: -123px -33px; }
+        .jssora21r:hover { background-position: -183px -33px; }
+        .jssora21l.jssora21ldn { background-position: -243px -33px; }
+        .jssora21r.jssora21rdn { background-position: -303px -33px; }
+		
+		    	.gallery {
+					margin-top:50px;
+					margin-bottom:50px;
+			list-style: none outside none;
+			padding-right:230px;
+			padding-top:50px;
+			padding-bottom:50px;
+				
+		}
+		.gallery li {
+			
+			display: block;
+			float:right;
+			
+			height: 100px;
+			margin-bottom: 6px;
+			margin-right: 6px;
+			width: 100px;
+		}
+		.gallery li a {
+			height: 100px;
+			width: 100px;
+		}
+		.gallery li a img {
+			max-width: 100px;
+		}
+
+#mensaje { 
+height:50px;
+width:150px;
+}
+
+#mensajecon { 
+height:100px;
+width:250px;
+}
+
+
+
+#formulario2 {
+	float:right;
+	
+	width:450px;
+	padding-top:50px;
+	padding-right:310px;
+	padding-bottom: 50px;
+
+	
+
+
+
+}
+
+
+		
+	
+
+#formulario2 label {
+	float:left;
+	width:150px;
+	color:black;
+	font-size:20px;
+	font-weight:bold;
+	
+	
+}
+
+#formulario2 input {
+	margin-bottom:15px;
+}
+
+#form1 {
+	alignment-baseline:central;
+}
+
+#form {
+	alignment-adjust:central;
+}
+
+
+#inshover {
+	background-image:url(Imagenes%20web/ins.png);
+	
+	height:66px;
+	width:66px;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	
+	
+}
+#inshover:hover {
+	background-image:url(Imagenes%20web/inshover.png);
+}
+
+
+#twitterhover {
+	background-image:url(Imagenes%20web/tw.png);
+	
+	height:66px;
+	width:66px;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	
+}
+
+#twitterhover:hover {
+	
+	background-image:url(Imagenes%20web/twitterhover.png)
+	
+	
+}
+
+#youtubehover {
+	background-image:url(Imagenes%20web/youtube.png);
+	
+	height:66px;
+	width:66px;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	
+	
+}
+
+#youtubehover:hover {
+	
+}
+
+
+#fbhover {
+	
+		background-image:url(Imagenes%20web/fbbien.png);
+	
+	height:66px;
+	width:66px;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	
+}
+
+#fbhover:hover {
+	background-image:url(Imagenes%20web/fbhover.png);
+	
+}
+	
+	
+#amarillo {
+	font-weight:bold;
+	
+	color:#ffcf01;
+}
+
+#imp li {
+	display:inline-block;
+	list-style:none;
+	margin-right: 5px;
+}
+
+
+#imp2 {
+	border-right:solid #ffcf01 1px;
+	width:130px;
+}
+	
+
+	
+	
+	
