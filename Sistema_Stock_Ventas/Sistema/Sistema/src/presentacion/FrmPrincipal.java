@@ -19,7 +19,52 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        this.cargarOpcionesMenu();
     }
+    
+    private void cargarOpcionesMenu(){
+        if (negocio.Variables.rolNombre.equals("Administrador")) {
+            mnuAlmacen.setEnabled(true);
+            mnuAcceso.setEnabled(true);
+            mnuCompras.setEnabled(true);
+            mnuVentas.setEnabled(true);
+            mnuConsultas.setEnabled(true);
+            itemConsultasVentas.setEnabled(true);
+            itemConsultasCompras.setEnabled(true);
+            
+            
+        } else if(negocio.Variables.rolNombre.equals("Almacenero")) {
+            mnuAlmacen.setEnabled(true);
+            mnuAcceso.setEnabled(false);
+            mnuCompras.setEnabled(true);
+            mnuVentas.setEnabled(false);
+            mnuConsultas.setEnabled(true);
+            itemConsultasVentas.setEnabled(false);
+            itemConsultasCompras.setEnabled(true);
+            
+            
+        }else if(negocio.Variables.rolNombre.equals("Vendedor")){
+            mnuAlmacen.setEnabled(false);
+            mnuAcceso.setEnabled(false);
+            mnuCompras.setEnabled(false);
+            mnuVentas.setEnabled(true);
+            mnuConsultas.setEnabled(true);
+            itemConsultasVentas.setEnabled(true);
+            itemConsultasCompras.setEnabled(false);
+                       
+            
+        }else{
+            mnuAlmacen.setEnabled(false);
+            mnuAcceso.setEnabled(false);
+            mnuCompras.setEnabled(false);
+            mnuVentas.setEnabled(false);
+            mnuConsultas.setEnabled(false);
+            itemConsultasVentas.setEnabled(false);            
+            itemConsultasCompras.setEnabled(false);           
+            
+        }
+    }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,8 +99,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        itemConsultasCompras = new javax.swing.JMenuItem();
+        itemConsultasVentas = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,6 +134,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setText("Proveedores");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         mnuCompras.add(jMenuItem3);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -102,6 +152,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem5.setText("Clientes");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         mnuVentas.add(jMenuItem5);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -141,18 +196,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/consultas.png"))); // NOI18N
         mnuConsultas.setText("Consultas");
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItem9.setText("Consultas Compras");
-        mnuConsultas.add(jMenuItem9);
+        itemConsultasCompras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemConsultasCompras.setText("Consultas Compras");
+        mnuConsultas.add(itemConsultasCompras);
 
-        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItem10.setText("Consultas Ventas");
-        mnuConsultas.add(jMenuItem10);
+        itemConsultasVentas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemConsultasVentas.setText("Consultas Ventas");
+        mnuConsultas.add(itemConsultasVentas);
 
         menuBar.add(mnuConsultas);
 
         mnuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/salir.png"))); // NOI18N
         mnuSalir.setText("Salir");
+        mnuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuSalirMouseClicked(evt);
+            }
+        });
         menuBar.add(mnuSalir);
 
         setJMenuBar(menuBar);
@@ -206,6 +266,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FrmProveedor frm = new FrmProveedor();
+        escritorio.add(frm);
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+     FrmCliente frm = new FrmCliente();
+     escritorio.add(frm);
+     frm.setVisible(true);
+     
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void mnuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSalirMouseClicked
+    System.exit(0);
+    }//GEN-LAST:event_mnuSalirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -243,8 +320,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem itemConsultasCompras;
+    private javax.swing.JMenuItem itemConsultasVentas;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -252,7 +330,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu mnuAcceso;
     private javax.swing.JMenu mnuAlmacen;

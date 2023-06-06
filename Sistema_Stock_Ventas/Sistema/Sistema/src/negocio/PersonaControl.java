@@ -5,16 +5,15 @@
 package negocio;
 
 
-import datos.RolDAO;
-import datos.UsuarioDAO;
-import entidades.Rol;
-import entidades.Usuario;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import datos.PersonaDAO;
+
+import entidades.Persona;
+ 
+
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,47 +21,44 @@ import javax.swing.table.DefaultTableModel;
  * @author jerem
  */
 public class PersonaControl {
-    private final UsuarioDAO DATOS;
-    private final RolDAO DATOSROL;
-    private Usuario obj;
+    private final PersonaDAO DATOS;
+
+    private Persona obj;
     private DefaultTableModel modeloTabla;
     private int registrosMostrados;
     
     
     public PersonaControl(){
-        this.DATOS = new UsuarioDAO();
-        this.DATOSROL = new RolDAO();
-        this.obj = new Usuario();
+        this.DATOS = new PersonaDAO();
+        this.obj = new Persona();
         this.registrosMostrados = 0;
         
     }
     public DefaultTableModel listar(String Texto,int totalPorPagina,int numPagina){
-        List<Usuario> lista = new ArrayList();
+        List<Persona> lista = new ArrayList();
         lista.addAll(DATOS.listar(Texto,totalPorPagina,numPagina));
-        String[] titulos={"ID","Rol ID","Rol","Usuario","Documento","N° Documento","Direccion","Telefono","Email","Clave","Estado"};
+        String[] titulos={"ID","Tipo Persona","Persona","Documento","NroDocumento","Direccion","Telefono","Email","Estado"};
         this.modeloTabla = new DefaultTableModel(null,titulos);
         String estado;
-        String[] registro = new String[11];
+        String[] registro = new String[9];
         this.registrosMostrados = 0;
 
         
-        for (Usuario item:lista ) {
+        for (Persona item:lista ) {
             if(item.isActivo()){
                 estado ="Activo";
             }else{
                 estado = "Inactivo";
             }
             registro[0]=Integer.toString(item.getId());
-            registro[1]=Integer.toString(item.getRolId());
-            registro[2]=item.getRolNombre();
-            registro[3]=item.getNombre();
-            registro[4]=item.getTipoDocumento();
-            registro[5]=item.getNumDocumento();
-            registro[6]=item.getDireccion();
-            registro[7]=item.getTelefono();
-            registro[8]=item.getEmail();
-            registro[9]=item.getClave();
-            registro[10]=estado;
+            registro[1]=item.getTipoPersona();
+            registro[2]=item.getNombre();
+            registro[3]=item.getTipoDocumento();
+            registro[4]=item.getNumDocumento();
+            registro[5]=item.getDireccion();
+            registro[6]=item.getTelefono();
+            registro[7]=item.getEmail();
+            registro[8]=estado;
             this.modeloTabla.addRow(registro);
             this.registrosMostrados = this.registrosMostrados +1;
                     
@@ -73,56 +69,54 @@ public class PersonaControl {
              
     }
     
-    public DefaultComboBoxModel seleccionar(){
-        DefaultComboBoxModel items = new DefaultComboBoxModel();
-        List<Rol> lista = new ArrayList();
-        lista = DATOSROL.seleccionar();
-        for (Rol item: lista ) {
-            items.addElement(new Rol(item.getId(),item.getNombre()));  
-        }
-        return items;
-        
-        
-        
-        
-    }
-    
-    
-    private static String encriptar(String valor){
-        
-        MessageDigest md;
-        try {
-            md = MessageDigest.getInstance("SHA-256");
-            
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }
-        
-        byte[] hash = md.digest(valor.getBytes());
-        StringBuilder sb = new StringBuilder();
-        
-        for (byte b : hash) {
-            sb.append(String.format("%02x", b));
+     public DefaultTableModel listarTipo(String Texto,int totalPorPagina,int numPagina,String tipoPersona){
+        List<Persona> lista = new ArrayList();
+        lista.addAll(DATOS.listarTipo(Texto,totalPorPagina,numPagina,tipoPersona));
+        String[] titulos={"ID","Tipo Persona","Persona","Documento","NroDocumento","Direccion","Telefono","Email","Estado"};
+        this.modeloTabla = new DefaultTableModel(null,titulos);
+        String estado;
+        String[] registro = new String[9];
+        this.registrosMostrados = 0;
 
+        
+        for (Persona item:lista ) {
+            if(item.isActivo()){
+                estado ="Activo";
+            }else{
+                estado = "Inactivo";
+            }
+            registro[0]=Integer.toString(item.getId());
+            registro[1]=item.getTipoPersona();
+            registro[2]=item.getNombre();
+            registro[3]=item.getTipoDocumento();
+            registro[4]=item.getNumDocumento();
+            registro[5]=item.getDireccion();
+            registro[6]=item.getTelefono();
+            registro[7]=item.getEmail();
+            registro[8]=estado;
+            this.modeloTabla.addRow(registro);
+            this.registrosMostrados = this.registrosMostrados +1;
+                    
             
         }
+        return modeloTabla;
         
-        return sb.toString();
-        
-    
+             
     }
-    public String insertar (int rolId,String nombre,String tipoDocumento, String numDocumento,String direccion,String telefono,String email,String clave){
-        if(DATOS.existe(email)){
+
+ 
+    public String insertar (String tipoPersona,String nombre, String tipoDocumento,String numDocumento,String direccion,String telefono,String email){
+        if(DATOS.existe(nombre)){
             return "El registro ya existe";
         }else{
-            obj.setRolId(rolId);
+            obj.setTipoPersona(tipoPersona);
             obj.setNombre(nombre);
             obj.setTipoDocumento(tipoDocumento);
             obj.setNumDocumento(numDocumento);
             obj.setDireccion(direccion);
             obj.setTelefono(telefono);
             obj.setEmail(email);
-            obj.setClave(this.encriptar(clave));
+            
             
             if(DATOS.insertar(obj)){
                 return "OK";
@@ -136,24 +130,17 @@ public class PersonaControl {
     }
            
     
-    public String actualizar (int id,int rolId,String nombre,String tipoDocumento, String numDocumento,String direccion,String telefono,String email,String emailAnt,String clave){
-        if(nombre.equals(emailAnt)){
+    public String actualizar (int id,String tipoPersona,String nombre,String nombreAnt,String tipoDocumento, String numDocumento,String direccion,String telefono,String email){
+        if(nombre.equals(nombreAnt)){
             obj.setId(id);
-            obj.setRolId(rolId);
+            obj.setTipoPersona(tipoPersona);
             obj.setNombre(nombre);
             obj.setTipoDocumento(tipoDocumento);
             obj.setNumDocumento(numDocumento);
             obj.setDireccion(direccion);
             obj.setTelefono(telefono);
             obj.setEmail(email);
-            String encriptado;
-            if (clave.length()==64) {
-                encriptado = clave;
-                
-            } else {
-                encriptado = this.encriptar(clave);
-            }
-            obj.setClave(encriptado);
+            
             if(DATOS.actualizar(obj)){
                 return "OK";
             }
@@ -167,20 +154,14 @@ public class PersonaControl {
             }else{
             
                 obj.setId(id);
-                obj.setRolId(rolId);
+                obj.setTipoPersona(tipoPersona);
                 obj.setNombre(nombre);
                 obj.setTipoDocumento(tipoDocumento);
                 obj.setNumDocumento(numDocumento);
                 obj.setDireccion(direccion);
                 obj.setTelefono(telefono);
                 obj.setEmail(email);
-                String encriptado;
-                if (clave.length() == 64) {
-                    encriptado = clave;
-
-                } else {
-                    encriptado = this.encriptar(clave);
-                }
+                
                 if(DATOS.actualizar(obj)){
                     return "OK";
                 }else{

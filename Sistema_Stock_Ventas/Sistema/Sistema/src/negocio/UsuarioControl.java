@@ -72,6 +72,28 @@ public class UsuarioControl {
         
              
     }
+    public String login(String email,String clave){
+        String resp = "0";
+        Usuario usu=this.DATOS.login(email,this.encriptar(clave));
+        if (usu!=null) {
+            if (usu.isActivo()) {
+                Variables.rolId = usu.getRolId();
+                Variables.rolNombre = usu.getRolNombre();
+                Variables.usuarioEmail = usu.getEmail();
+                Variables.usuarioNombre = usu.getNombre();
+                resp = "1";
+                
+                
+            } else {
+                resp="2";
+            }
+            
+            
+        }
+        
+        
+        return resp;
+    }
     
     public DefaultComboBoxModel seleccionar(){
         DefaultComboBoxModel items = new DefaultComboBoxModel();
@@ -137,7 +159,7 @@ public class UsuarioControl {
            
     
     public String actualizar (int id,int rolId,String nombre,String tipoDocumento, String numDocumento,String direccion,String telefono,String email,String emailAnt,String clave){
-        if(nombre.equals(emailAnt)){
+        if(email.equals(emailAnt)){
             obj.setId(id);
             obj.setRolId(rolId);
             obj.setNombre(nombre);
